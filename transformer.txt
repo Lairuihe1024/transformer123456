@@ -2,11 +2,11 @@ import os
 from onekey_algo.fusion.MultiTransformer.run_model import train_categorical_model as clf_main
 from collections import namedtuple
 # 设置参数
-model_root = r'F:\Scientific research\Uterine malignancy\Habitat-aware transformer-based deep learning for predicting prognosis in cervical cancer\transformer\models\models_all1'
-train = r'F:\Scientific research\Uterine malignancy\Habitat-aware transformer-based deep learning for predicting prognosis in cervical cancer\transformer\features\features_all\train'
-val = r'F:\Scientific research\Uterine malignancy\Habitat-aware transformer-based deep learning for predicting prognosis in cervical cancer\transformer\features\features_all\validation'
+model_root = r''
+train = r''
+val = r''
 tests = []
-target_file = r'F:\Scientific research\Uterine malignancy\Habitat-aware transformer-based deep learning for predicting prognosis in cervical cancer\label-RND-4.csv'
+target_file = r''
 input_dim = 1743
 bags_size = 3
 normalize = True
