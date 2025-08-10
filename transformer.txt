@@ -1,0 +1,40 @@
+import os
+from onekey_algo.fusion.MultiTransformer.run_model import train_categorical_model as clf_main
+from collections import namedtuple
+# 设置参数
+model_root = r'F:\Scientific research\Uterine malignancy\Habitat-aware transformer-based deep learning for predicting prognosis in cervical cancer\transformer\models\models_all1'
+train = r'F:\Scientific research\Uterine malignancy\Habitat-aware transformer-based deep learning for predicting prognosis in cervical cancer\transformer\features\features_all\train'
+val = r'F:\Scientific research\Uterine malignancy\Habitat-aware transformer-based deep learning for predicting prognosis in cervical cancer\transformer\features\features_all\validation'
+tests = []
+target_file = r'F:\Scientific research\Uterine malignancy\Habitat-aware transformer-based deep learning for predicting prognosis in cervical cancer\label-RND-4.csv'
+input_dim = 1743
+bags_size = 3
+normalize = True
+# 表头是第几行，一般是0或者None，None对应的是没有
+header = 0
+for i in range(30):
+    params = dict(train=train,
+              val=val,
+              tests=tests,
+              target_file=target_file,
+              j=0,
+              input_dim=input_dim,
+              bags_size=bags_size,
+              normalize=normalize,
+              header=header,
+              gpus=[0],
+              batch_size=32,
+              model_name='Transformer',
+              epochs=20,
+              init_lr=0.01,
+              optimizer='sgd',
+              model_root=os.path.join(model_root,f"try-{i}"),
+              add_date=False,
+              retrain='',
+              iters_start=0,
+              iters_verbose=1,
+              save_per_epoch=False,
+              pretrained=True)
+# 训练模型
+    Args = namedtuple("Args", params)
+    clf_main(Args(**params))
